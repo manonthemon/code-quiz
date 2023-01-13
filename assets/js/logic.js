@@ -5,11 +5,6 @@ let questionsPage = document.getElementById("questions")
 let startScreen = document.getElementById("start-screen")
 let questionText = document.getElementById("question-title")
 
-
-let questionsOptions = []
-let answersOptions = []
-
-
 //This is the start button with a event listener attached
 //It starts the timer
 //And activates the startGame function which displays first question
@@ -44,8 +39,8 @@ function startGame() {
 // First it hides the start page
 //Then it creates a div for question and answers
 //then it sets the css properties of that div
-//Then it appends to the doc body
-//Then it sets the question text to the text of first question in the quizQuestions array
+//Then it appends the new div to the doc body
+//Then it sets the question text to the text of first question in the quizQuestions array - TO BE UPDATED
 //Then it appends question text to the questions div
 
 let questionsContainer //variable foe the questions container defined in global scope
