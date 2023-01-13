@@ -41,7 +41,7 @@ let quizQuestions = [
 },
 
 { question5: "what's SSSS?",
- answers5 : [
+ answers : [
     "Q",
     "R",
     "S",

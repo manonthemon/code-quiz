@@ -38,7 +38,6 @@ function startTimer() {
 function startGame() {
     newQuestion() // displays new question
     answersButtons()
-  
 };
 
 // function display a new questions. 
@@ -58,16 +57,9 @@ function newQuestion() {
     questionsContainer.style.flexDirection = "column";
     questionsContainer.style.textAlign = "center"
     document.body.appendChild(questionsContainer)
-
-    // questionText.textContent = quizQuestions[0].question1;
-
-    
-    for (let i = 0; i < 4; i++) {
-        questionText.textContent = quizQuestions[0].question1 
-    }
+    questionText.textContent = quizQuestions[0].question1;
     questionsContainer.appendChild(questionText);
 }
-
 // function to display answers buttons. 
 // It uses a for loop to make for buttons and assign it answers from the quizQuestions array
 
@@ -80,6 +72,8 @@ function answersButtons() {
         questionsContainer.appendChild(answerButton);
     }
 }
+
+
 
 
 
