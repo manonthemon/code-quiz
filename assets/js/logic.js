@@ -7,6 +7,7 @@ let questionText = document.getElementById("question-title")
 
 let questionsContainer //variable foe the questions container defined in global scope
 let questionsCounter = 0;
+let selectedAnswer
 
 //This is the start button with a event listener attached
 //It starts the timer
@@ -37,6 +38,8 @@ function startTimer() {
 function startGame() {
     firstQuestion() // displays new question
     firstAnswers()
+
+
 }
 // function display the first questions. 
 // First it hides the start page
@@ -61,7 +64,9 @@ function firstQuestion() {
 // first it creates a div container for answers
 // It then uses a for loop to make for buttons and assign it answers from the quizQuestions array
 // it then appends these buttons to answers container
-// it then adds eventListeners to button which launch display next question and answers when clicked
+// it then adds eventListeners to button which check if the selected answer is correct
+// penalize player if it's not
+//proceed to next question 
 let answerButton
 function firstAnswers() {
     answersContainer = document.createElement("div")
@@ -73,7 +78,12 @@ function firstAnswers() {
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
-            checkAnswer()
+            if (this.textContent === correctAnswer1) {
+                console.log("Correct answer!");
+            } else {
+                console.log("Incorrect answer.");
+                penalty()
+            }
             nextQuestion()
             nextAnswers()
             console.log(questionsCounter)
@@ -100,16 +110,42 @@ function nextAnswers() {
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
-            if (questionsCounter <= 5) {
-                checkAnswer()
+            if (this.textContent === correctAnswer2 || this.textContent === correctAnswer3
+                || this.textContent === correctAnswer3 || this.textContent === correctAnswer4 ||
+                this.textContent === correctAnswer5) {
+                console.log("Correct answer!");
+            } else {
+                console.log("Incorrect answer.");
+                penalty()
+            }
+            if (questionsCounter == 5) {
+                gameOver()
+            }
+            else {
                 nextQuestion()
                 nextAnswers()
                 console.log(questionsCounter)
-            }
-            else gameOver()
-        })
-    }
-}
+            }})}}
+        
+
+
+
+
+
+
+
+
+  
+
+
+            
+
+
+
+
+
+
+
 
 // Function finishing the game
 function gameOver() {
@@ -122,13 +158,3 @@ function penalty() {
     secondsLeft = timer.textContent = secondsLeft - 10
 }
 
-// Function to check if answer is correct
-
-function checkAnswer() {
-    
-if(answerButton.textContent == correctAnswer1 || correctAnswer2 || correctAnswer3 || correctAnswer4 || correctAnswer5 )
-    { console.log("Correct!");
-      } else {
-        console.log("Incorrect!");
-      }
-}
