@@ -11,7 +11,7 @@ let quizQuestions = [
 
 { question: "2. What does DOM stand for?",
  answers : [
-    "Differentiated Operational Module ",
+   "Differentiated Operational Module",
     "Document Object Model",
     "Diverging Occlusion Method",
     "Days On Market"
@@ -50,3 +50,5 @@ let quizQuestions = [
 },
 
 ]
+
+var correctAnswer1 = "<script>";

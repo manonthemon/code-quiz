@@ -73,7 +73,12 @@ function firstAnswers() {
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
-            penalty()
+          
+            if(this.textContent === correctAnswer1){
+                  console.log("Correct!");
+                } else {
+                  console.log("Incorrect!");
+                }
             nextQuestion()
             nextAnswers()
             console.log(questionsCounter)
