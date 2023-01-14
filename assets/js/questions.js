@@ -1,53 +1,48 @@
 let quizQuestions = [
 
-{ question: "what's XXXX?",
+{ question: "Which HTML element do we put JavaScript in?",
  answers : [
-    "AAAAAAAAAA",
-    "BBBBBBBBBB",
-    "CCCCCCCCCCC",
-    "DDDDDDDDDD"
+    "<scripture>",
+    "<script-container>",
+    "<java-script>",
+    "<script>"
 ],
-    correctAnswerIndex: 3
 },
 
-{ question: "what's YYYY?",
+{ question: "What does DOM stand for?",
  answers : [
-    "E",
-    "F",
-    "G",
-    "H"
+    "Differentiated Operational Module ",
+    "Document Object Model",
+    "Diverging Occlusion Method",
+    "Days On Market"
 ],
-    correctAnswerIndex: 3
 },
 
-{ question: "what's ZZZZ?",
+{ question: "Which symbol represent 'equal in value and type in Java Script?",
  answers : [
-    "I",
-    "J",
-    "K",
-    "L"
+    "=+",
+    "==",
+    "=",
+    "==="
 ],
-    correctAnswerIndex: 3
 },
 
-{ question: "what's WWWW?",
+{ question: "Is Java Script the same as JAVA?",
  answers : [
-    "M",
-    "N",
-    "O",
-    "P"
+    "Yes",
+    "No",
+    "Often",
+    "Rarely"
 ],
-    correctAnswerIndex: 3
 },
 
-{ question: "what's SSSS?",
+{ question: "How do you call a function in Java Script?",
  answers : [
-    "Q",
-    "R",
-    "S",
-    "T"
+    "Call function()",
+    "Execute function ()",
+    "FunctionName()",
+    "Run function()"
 ],
-    correctAnswerIndex: 3
 },
 
 ]

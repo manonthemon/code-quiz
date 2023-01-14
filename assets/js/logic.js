@@ -6,7 +6,6 @@ let startScreen = document.getElementById("start-screen")
 let questionText = document.getElementById("question-title")
 
 let questionsContainer //variable foe the questions container defined in global scope
-let answerButton
 let questionsCounter = 0;
 
 //This is the start button with a event listener attached
@@ -40,7 +39,6 @@ function startGame() {
   
     }
 
- 
 
 // function display a new questions. 
 // First it hides the start page
@@ -62,45 +60,45 @@ function firstQuestion() {
     
 }
 
+// function to display answers buttons. 
+// It uses a for loop to make for buttons and assign it answers from the quizQuestions array
+let answerButton
+function firstAnswers() {
+    answersContainer = document.createElement("div")
+    answersContainer.style = "display: flex; flex-direction: column; text-align: center;";
+    document.body.appendChild(answersContainer)
+    for (let i = 0; i < 4; i++) {
+        answerButton = document.createElement("button");
+        answerButton.textContent = quizQuestions[0].answers[i]           
+        answerButton.style.alignSelf = "center"
+        answersContainer.appendChild(answerButton);
+        answerButton.addEventListener("click", function () {
+            nextQuestion()
+            nextAnswers()
+            
+        })
+    } 
+}
+
 //This function displays the next question if the number of questions answered is increased by 1
 
 function nextQuestion() {
+
     questionText.textContent = quizQuestions[questionsCounter].question;
     questionsContainer.appendChild(questionText);
     questionsCounter++
 }
 
-// function to display answers buttons. 
-// It uses a for loop to make for buttons and assign it answers from the quizQuestions array
-
-function firstAnswers() {
+function nextAnswers() {
+    answersContainer.innerHTML = '';
     for (let i = 0; i < 4; i++) {
-        let answerButton = document.createElement("button");
-        answerButton.textContent = quizQuestions[0].answers[i]           
+        answerButton = document.createElement("button");
+        answerButton.textContent = quizQuestions[questionsCounter-1].answers[i]           
         answerButton.style.alignSelf = "center"
-        questionsContainer.appendChild(answerButton);
+        answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
             nextQuestion()
             nextAnswers()
         })
     } 
 }
-
-function nextAnswers() {
-    for (let i = 0; i < 4; i++) {
-        let answerButton = document.createElement("button");
-        answerButton.textContent = quizQuestions[1].answers[i]           
-        answerButton.style.alignSelf = "center"
-        questionsContainer.appendChild(answerButton);
-        answerButton.addEventListener("click", function () {
-            nextQuestion()
-        })
-    } 
-}
-
-
-
-
-
-
-
