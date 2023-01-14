@@ -32,7 +32,7 @@ let quizQuestions = [
     "Yes",
     "No",
     "Often",
-    "Rarely"
+     "Rarely"
 ],
 },
 
@@ -51,4 +51,8 @@ let quizQuestions = [
 
 ]
 
-var correctAnswer1 = "<script>";
+let correctAnswer1 = "<script>"
+let correctAnswer2 = "Document Object Model"
+let correctAnswer3 = "==="
+let correctAnswer4 = "No"
+let correctAnswer5 = "FunctionName()"

@@ -73,12 +73,7 @@ function firstAnswers() {
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
-          
-            if(this.textContent === correctAnswer1){
-                  console.log("Correct!");
-                } else {
-                  console.log("Incorrect!");
-                }
+            checkAnswer()
             nextQuestion()
             nextAnswers()
             console.log(questionsCounter)
@@ -105,7 +100,8 @@ function nextAnswers() {
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
-            if (questionsCounter < 5) {
+            if (questionsCounter <= 5) {
+                checkAnswer()
                 nextQuestion()
                 nextAnswers()
                 console.log(questionsCounter)
@@ -124,4 +120,15 @@ function gameOver() {
 // Function punishing player for wrong answer be removing seconds 
 function penalty() {
     secondsLeft = timer.textContent = secondsLeft - 10
+}
+
+// Function to check if answer is correct
+
+function checkAnswer() {
+    
+if(answerButton.textContent == correctAnswer1 || correctAnswer2 || correctAnswer3 || correctAnswer4 || correctAnswer5 )
+    { console.log("Correct!");
+      } else {
+        console.log("Incorrect!");
+      }
 }
