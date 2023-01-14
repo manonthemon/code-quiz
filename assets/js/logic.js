@@ -9,6 +9,7 @@ let questionsContainer //variable foe the questions container defined in global 
 let questionsCounter = 0;
 let selectedAnswer
 
+
 //This is the start button with a event listener attached
 //It starts the timer
 //And activates the startGame function which displays first question
