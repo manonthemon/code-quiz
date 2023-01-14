@@ -18,15 +18,16 @@ startButton.addEventListener("click", function () {
 
 //Timer function counts down from 10
 //Resets back to 10 when finished
-var secondsLeft = 60;
+let timerInterval
+let secondsLeft = 60;
 
 function startTimer() {
-    var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft;
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            secondsLeft = 10;
+            
         }
     }, 1000);
 }
@@ -37,8 +38,6 @@ function startGame() {
     firstQuestion() // displays new question
     firstAnswers()
 }
-
-
 // function display the first questions. 
 // First it hides the start page
 //Then it creates a div for question and answers
@@ -104,11 +103,12 @@ function nextAnswers() {
             nextQuestion()
             nextAnswers()
             console.log(questionsCounter) }
-            else gameOver ()git  
+            else gameOver ()
         })
     }
 }
 
 function gameOver () {
-    alert("GAME OVER")
+    clearInterval(timerInterval)
+    console.log("GAME OVER")
 }
