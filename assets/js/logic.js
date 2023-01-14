@@ -19,7 +19,7 @@ startButton.addEventListener("click", function () {
 //Timer function counts down from 10
 //Resets back to 10 when finished
 let timerInterval
-let secondsLeft = 60;
+let secondsLeft = 100;
 
 function startTimer() {
     timerInterval = setInterval(function () {
@@ -27,7 +27,7 @@ function startTimer() {
         timer.textContent = secondsLeft;
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            
+
         }
     }, 1000);
 }
@@ -73,10 +73,11 @@ function firstAnswers() {
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
+            penalty()
             nextQuestion()
             nextAnswers()
             console.log(questionsCounter)
-          
+
         })
     }
 }
@@ -99,16 +100,23 @@ function nextAnswers() {
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
-            if (questionsCounter < 5 ) {
-            nextQuestion()
-            nextAnswers()
-            console.log(questionsCounter) }
-            else gameOver ()
+            if (questionsCounter < 5) {
+                nextQuestion()
+                nextAnswers()
+                console.log(questionsCounter)
+            }
+            else gameOver()
         })
     }
 }
 
-function gameOver () {
+// Function finishing the game
+function gameOver() {
     clearInterval(timerInterval)
     console.log("GAME OVER")
+}
+
+// Function punishing player for wrong answer be removing seconds 
+function penalty() {
+    secondsLeft = timer.textContent = secondsLeft - 10
 }

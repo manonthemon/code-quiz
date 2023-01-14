@@ -3,7 +3,7 @@ let quizQuestions = [
 { question: "1. Which HTML element do we put JavaScript in?",
  answers : [
     "<scripture>",
-    "<script-container>",
+    "<script-container>" ,
     "<java-script>",
     "<script>"
 ],
