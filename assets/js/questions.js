@@ -1,6 +1,6 @@
 let quizQuestions = [
 
-{ question: "Which HTML element do we put JavaScript in?",
+{ question: "1. Which HTML element do we put JavaScript in?",
  answers : [
     "<scripture>",
     "<script-container>",
@@ -9,7 +9,7 @@ let quizQuestions = [
 ],
 },
 
-{ question: "What does DOM stand for?",
+{ question: "2. What does DOM stand for?",
  answers : [
     "Differentiated Operational Module ",
     "Document Object Model",
@@ -18,7 +18,7 @@ let quizQuestions = [
 ],
 },
 
-{ question: "Which symbol represent 'equal in value and type in Java Script?",
+{ question: "3. Which symbol represent 'equal in value and type in Java Script?",
  answers : [
     "=+",
     "==",
@@ -27,7 +27,7 @@ let quizQuestions = [
 ],
 },
 
-{ question: "Is Java Script the same as JAVA?",
+{ question: "4. Is Java Script the same as JAVA?",
  answers : [
     "Yes",
     "No",
@@ -36,13 +36,17 @@ let quizQuestions = [
 ],
 },
 
-{ question: "How do you call a function in Java Script?",
+{ question: "5. How do you call a function in Java Script?",
  answers : [
     "Call function()",
     "Execute function ()",
     "FunctionName()",
     "Run function()"
 ],
+},
+
+{ question: "Game Over",
+
 },
 
 ]

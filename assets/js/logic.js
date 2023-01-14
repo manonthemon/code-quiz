@@ -36,19 +36,20 @@ function startTimer() {
 function startGame() {
     firstQuestion() // displays new question
     firstAnswers()
-  
-    }
 
 
-// function display a new questions. 
+
+}
+
+
+// function display the first questions. 
 // First it hides the start page
 //Then it creates a div for question and answers
 //then it sets the css properties of that div
 //Then it appends the new div to the doc body
-//Then it sets the question text to the text of first question in the quizQuestions array - TO BE UPDATED
+//Then it sets the question text to the text
 //Then it appends question text to the questions div
-
-
+// Then it adds 1 to the variable counting the questions
 function firstQuestion() {
     startScreen.style.display = "none";
     questionsContainer = document.createElement("div")
@@ -57,11 +58,16 @@ function firstQuestion() {
     questionText.textContent = quizQuestions[0].question;
     questionsContainer.appendChild(questionText);
     questionsCounter++
-    
+    console.log(questionsCounter)
+
+
 }
 
-// function to display answers buttons. 
-// It uses a for loop to make for buttons and assign it answers from the quizQuestions array
+// function to display the first set of answers
+// first it creates a div container for answers
+// It then uses a for loop to make for buttons and assign it answers from the quizQuestions array
+// it then appends these buttons to answers container
+// it then adds eventListeners to button which launch display next question and answers when clicked
 let answerButton
 function firstAnswers() {
     answersContainer = document.createElement("div")
@@ -69,36 +75,47 @@ function firstAnswers() {
     document.body.appendChild(answersContainer)
     for (let i = 0; i < 4; i++) {
         answerButton = document.createElement("button");
-        answerButton.textContent = quizQuestions[0].answers[i]           
+        answerButton.textContent = quizQuestions[0].answers[i]
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
             nextQuestion()
             nextAnswers()
-            
+            console.log(questionsCounter)
+          
         })
-    } 
+    }
 }
 
-//This function displays the next question if the number of questions answered is increased by 1
+//This function replaces previous question text with next question text
+
 
 function nextQuestion() {
-
     questionText.textContent = quizQuestions[questionsCounter].question;
     questionsContainer.appendChild(questionText);
     questionsCounter++
+
+ 
 }
 
 function nextAnswers() {
     answersContainer.innerHTML = '';
     for (let i = 0; i < 4; i++) {
         answerButton = document.createElement("button");
-        answerButton.textContent = quizQuestions[questionsCounter-1].answers[i]           
+        answerButton.textContent = quizQuestions[questionsCounter - 1].answers[i]
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
+            if (questionsCounter < 5 ) {
             nextQuestion()
             nextAnswers()
+            console.log(questionsCounter) }
+            else gameOver ()
+       
         })
-    } 
+    }
+}
+
+function gameOver () {
+    alert("GAME OVER")
 }
