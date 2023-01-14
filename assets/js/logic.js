@@ -128,28 +128,11 @@ function nextAnswers() {
             }})}}
         
 
-
-
-
-
-
-
-
-  
-
-
-            
-
-
-
-
-
-
-
-
 // Function finishing the game
 function gameOver() {
     clearInterval(timerInterval)
+    let result = secondsLeft
+    console.log("The result is "  + secondsLeft)
     console.log("GAME OVER")
 }
 
