@@ -33,6 +33,9 @@ function startTimer() {
 function startGame() {
     newQuestion() // displays new question
     answersButtons()
+    console.log(questionsAnswered)
+ 
+
 };
 
 // function display a new questions. 
@@ -44,30 +47,52 @@ function startGame() {
 //Then it appends question text to the questions div
 
 let questionsContainer //variable foe the questions container defined in global scope
+let questionsAnswered = 0;
 
 function newQuestion() {
     startScreen.style.display = "none";
     questionsContainer = document.createElement("div")
-    questionsContainer.style.display = "flex";
-    questionsContainer.style.flexDirection = "column";
-    questionsContainer.style.textAlign = "center"
+    questionsContainer.style = "display: flex; flex-direction: column; text-align: center;";
     document.body.appendChild(questionsContainer)
-    questionText.textContent = quizQuestions[0].question1;
+    questionText.textContent = quizQuestions[0].question;
     questionsContainer.appendChild(questionText);
+    questionsAnswered++
 }
+
 // function to display answers buttons. 
 // It uses a for loop to make for buttons and assign it answers from the quizQuestions array
 
 function answersButtons() {
     for (let i = 0; i < 4; i++) {
         let answerButton = document.createElement("button");
-        answerButton.textContent = quizQuestions[0].answers1[i]            
-        answerButton.style.width = answerButton.offsetWidth + "200px";
+        answerButton.textContent = quizQuestions[0].answers[i]           
         answerButton.style.alignSelf = "center"
         questionsContainer.appendChild(answerButton);
-    }
+    
+    } 
 }
 
+
+// function nextQuestion () {
+//     for (let i = 0; i < quizQuestions.length; i++) {
+//         startScreen.style.display = "none";
+//         document.body.appendChild(questionsContainer)
+//         questionText.textContent = quizQuestions[i].question;
+//         questionsContainer.appendChild(questionText); 
+// }
+// }
+
+// function nextQuestion() {
+//     questionsContainer.style.display = "none";
+//     questionsContainer = document.createElement("div")
+//     questionsContainer.style.display = "flex";
+//     questionsContainer.style.flexDirection = "column";
+//     questionsContainer.style.textAlign = "center"
+//     document.body.appendChild(questionsContainer)
+    
+//     questionText.textContent = quizQuestions[1].question;
+//     questionsContainer.appendChild(questionText);
+// }
 
 
 

@@ -1,17 +1,17 @@
 let quizQuestions = [
 
-{ question1: "what's XXXX?",
- answers1 : [
-    "A",
-    "B",
-    "C",
-    "D"
+{ question: "what's XXXX?",
+ answers : [
+    "AAAAAAAAAA",
+    "BBBBBBBBBB",
+    "CCCCCCCCCCC",
+    "DDDDDDDDDD"
 ],
     correctAnswerIndex: 3
 },
 
-{ question2: "what's YYYY?",
- answers2 : [
+{ question: "what's YYYY?",
+ answers : [
     "E",
     "F",
     "G",
@@ -20,8 +20,8 @@ let quizQuestions = [
     correctAnswerIndex: 3
 },
 
-{ question3: "what's ZZZZ?",
- answers3 : [
+{ question: "what's ZZZZ?",
+ answers : [
     "I",
     "J",
     "K",
@@ -30,8 +30,8 @@ let quizQuestions = [
     correctAnswerIndex: 3
 },
 
-{ question4: "what's WWWW?",
- answers4 : [
+{ question: "what's WWWW?",
+ answers : [
     "M",
     "N",
     "O",
@@ -40,7 +40,7 @@ let quizQuestions = [
     correctAnswerIndex: 3
 },
 
-{ question5: "what's SSSS?",
+{ question: "what's SSSS?",
  answers : [
     "Q",
     "R",
