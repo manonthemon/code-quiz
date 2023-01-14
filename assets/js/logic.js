@@ -18,7 +18,7 @@ startButton.addEventListener("click", function () {
 
 //Timer function counts down from 10
 //Resets back to 10 when finished
-var secondsLeft = 10;
+var secondsLeft = 60;
 
 function startTimer() {
     var timerInterval = setInterval(function () {
@@ -36,9 +36,6 @@ function startTimer() {
 function startGame() {
     firstQuestion() // displays new question
     firstAnswers()
-
-
-
 }
 
 
@@ -59,8 +56,6 @@ function firstQuestion() {
     questionsContainer.appendChild(questionText);
     questionsCounter++
     console.log(questionsCounter)
-
-
 }
 
 // function to display the first set of answers
@@ -88,15 +83,14 @@ function firstAnswers() {
 }
 
 //This function replaces previous question text with next question text
-
-
 function nextQuestion() {
     questionText.textContent = quizQuestions[questionsCounter].question;
     questionsContainer.appendChild(questionText);
     questionsCounter++
-
- 
 }
+
+//This function replaces previous answers with next answers. 
+// If final question answered, it finishes the game.
 
 function nextAnswers() {
     answersContainer.innerHTML = '';
@@ -110,8 +104,7 @@ function nextAnswers() {
             nextQuestion()
             nextAnswers()
             console.log(questionsCounter) }
-            else gameOver ()
-       
+            else gameOver ()git  
         })
     }
 }
