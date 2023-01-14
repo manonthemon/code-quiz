@@ -5,6 +5,10 @@ let questionsPage = document.getElementById("questions")
 let startScreen = document.getElementById("start-screen")
 let questionText = document.getElementById("question-title")
 
+let questionsContainer //variable foe the questions container defined in global scope
+let answerButton
+let questionsCounter = 0;
+
 //This is the start button with a event listener attached
 //It starts the timer
 //And activates the startGame function which displays first question
@@ -31,12 +35,12 @@ function startTimer() {
 //function starting the game containing other functions controlling the game
 
 function startGame() {
-    newQuestion() // displays new question
-    answersButtons()
-    console.log(questionsAnswered)
- 
+    firstQuestion() // displays new question
+    firstAnswers()
+  
+    }
 
-};
+ 
 
 // function display a new questions. 
 // First it hides the start page
@@ -46,54 +50,53 @@ function startGame() {
 //Then it sets the question text to the text of first question in the quizQuestions array - TO BE UPDATED
 //Then it appends question text to the questions div
 
-let questionsContainer //variable foe the questions container defined in global scope
-let questionsAnswered = 0;
 
-function newQuestion() {
+function firstQuestion() {
     startScreen.style.display = "none";
     questionsContainer = document.createElement("div")
     questionsContainer.style = "display: flex; flex-direction: column; text-align: center;";
     document.body.appendChild(questionsContainer)
     questionText.textContent = quizQuestions[0].question;
     questionsContainer.appendChild(questionText);
-    questionsAnswered++
+    questionsCounter++
+    
+}
+
+//This function displays the next question if the number of questions answered is increased by 1
+
+function nextQuestion() {
+    questionText.textContent = quizQuestions[questionsCounter].question;
+    questionsContainer.appendChild(questionText);
+    questionsCounter++
 }
 
 // function to display answers buttons. 
 // It uses a for loop to make for buttons and assign it answers from the quizQuestions array
 
-function answersButtons() {
+function firstAnswers() {
     for (let i = 0; i < 4; i++) {
         let answerButton = document.createElement("button");
         answerButton.textContent = quizQuestions[0].answers[i]           
         answerButton.style.alignSelf = "center"
         questionsContainer.appendChild(answerButton);
-    
+        answerButton.addEventListener("click", function () {
+            nextQuestion()
+            nextAnswers()
+        })
     } 
 }
 
-
-// function nextQuestion () {
-//     for (let i = 0; i < quizQuestions.length; i++) {
-//         startScreen.style.display = "none";
-//         document.body.appendChild(questionsContainer)
-//         questionText.textContent = quizQuestions[i].question;
-//         questionsContainer.appendChild(questionText); 
-// }
-// }
-
-// function nextQuestion() {
-//     questionsContainer.style.display = "none";
-//     questionsContainer = document.createElement("div")
-//     questionsContainer.style.display = "flex";
-//     questionsContainer.style.flexDirection = "column";
-//     questionsContainer.style.textAlign = "center"
-//     document.body.appendChild(questionsContainer)
-    
-//     questionText.textContent = quizQuestions[1].question;
-//     questionsContainer.appendChild(questionText);
-// }
-
+function nextAnswers() {
+    for (let i = 0; i < 4; i++) {
+        let answerButton = document.createElement("button");
+        answerButton.textContent = quizQuestions[1].answers[i]           
+        answerButton.style.alignSelf = "center"
+        questionsContainer.appendChild(answerButton);
+        answerButton.addEventListener("click", function () {
+            nextQuestion()
+        })
+    } 
+}
 
 
 
