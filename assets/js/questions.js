@@ -1,5 +1,6 @@
-let quizQuestions = [
 
+//Variable holding an array of objects with answers and questions
+let quizQuestions = [
 { question: "1. Which HTML element do we put JavaScript in?",
  answers : [
     "1. <scripture>",
@@ -44,8 +45,9 @@ let quizQuestions = [
     "4. Run function()"
 ],
 },
-
 ]
+
+//Variables with correct answers
 
 let correctAnswer1 = "4. <script>"
 let correctAnswer2 = "2. Document Object Model"
