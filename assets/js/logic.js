@@ -1,3 +1,4 @@
+//Variables referencing html elements
 let scores = document.querySelector("scores")
 let timer = document.getElementById("time")
 let startButton = document.getElementById("start")
@@ -10,48 +11,52 @@ let finalScoreSpan = document.getElementById("final-score")
 let submitButton = document.getElementById("submit")
 let initials = document.getElementById("initials")
 
-let questionsContainer //variable foe the questions container defined in global scope
+// Variables in global scope
+let questionsContainer 
 let questionsCounter = 0;
 let selectedAnswer
 
 
-//This is the start button with a event listener attached
-//It starts the timer
-//And activates the startGame function which displays first question
+//Start button with a event listener attached
+//It starts the timer and activates the startGame function which displays the first question
 startButton.addEventListener("click", function () {
     startTimer() //starts timer on button click
     startGame()
 })
 
-//Timer function counts down from 10
-//Resets back to 10 when finished
+//Timer function counts down from defined number
+//Ends game if timer runs down to 0
+
 let timerInterval
-let secondsLeft = 100;
+let secondsLeft = 60;
+timer.textContent = secondsLeft
 
 function startTimer() {
     timerInterval = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft;
         if (secondsLeft === 0) {
-            clearInterval(timerInterval);
+            clearInterval(timerInterval)
+            gameOver()        
         }
-    }, 1000);
+    }, 1000)
+    ;
 }
 
-//function starting the game containing other functions controlling the game
-
+//Function starting the game containing other functions controlling the game
 function startGame() {
-    firstQuestion() // displays new question
+    firstQuestion() 
     firstAnswers()
 }
-// Function display the first questions. 
+
+// Function displaying the first questions. 
 // First it hides the start page
 //Then it creates a div for question and answers
-//then it sets the css properties of that div
+//Then it sets the css properties of that div
 //Then it appends the new div to the doc body
 //Then it sets the question text to the text
 //Then it appends question text to the questions div
-// Then it adds 1 to the variable counting the questions
+//Then it adds 1 to the variable counting the questions
 function firstQuestion() {
     startScreen.style.display = "none";
     questionsContainer = document.createElement("div")
@@ -62,22 +67,22 @@ function firstQuestion() {
     questionsCounter++
 }
 
-// function to display the first set of answers
-// first it creates a div container for answers
-// It then uses a for loop to make for buttons and assign it answers from the quizQuestions array
-// it then appends these buttons to answers container
-// it then adds eventListeners to button which check if the selected answer is correct
-// penalize player if it's not
-//proceed to next question 
+// Function to display the first set of answers
+// First it creates a div container for answers
+// It then uses a for loop to make buttons and assign them answers from the quizQuestions array
+// It then appends these buttons to answers container
+// It then adds eventListeners to button which check if the selected answer is correct
+// It then penalizes the player if it's not
+// It then proceeds to the next question 
 let answerButton
 function firstAnswers() {
     answersContainer = document.createElement("div")
-    answersContainer.style = "display: flex; flex-direction: column; text-align: center;";
+    answersContainer.style = "display: flex; flex-direction: column; align-items: flex-start; justify-content:center";
     document.body.appendChild(answersContainer)
     for (let i = 0; i < 4; i++) {
         answerButton = document.createElement("button");
         answerButton.textContent = quizQuestions[0].answers[i]
-        answerButton.style.alignSelf = "center"
+        answerButton.style = "max-width: 200px; padding: 3px; margin-left: 150px";
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
             if (this.textContent === correctAnswer1) {  
@@ -100,14 +105,13 @@ function nextQuestion() {
 }
 
 //This function replaces previous answers with next answers. 
-// If final question answered, it finishes the game.
-
+//If final question answered, it finishes the game.
 function nextAnswers() {
     answersContainer.innerHTML = '';
     for (let i = 0; i < 4; i++) {
         answerButton = document.createElement("button");
         answerButton.textContent = quizQuestions[questionsCounter - 1].answers[i]
-        answerButton.style.alignSelf = "center"
+        answerButton.style = "max-width: 200px; padding: 3px; margin-left: 150px";
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
             if (this.textContent === correctAnswer2 || this.textContent === correctAnswer3
@@ -126,8 +130,7 @@ function nextAnswers() {
                 nextAnswers()
             }})}}
         
-
-// Function finishing the game
+//Function finishing the game
 //It stops the timer and assigns its value to results variable
 //It displays game end screen with the result displayed
 //It takes user initials input and assigns it to variable alongside result
@@ -142,29 +145,19 @@ function gameOver() {
     finalScoreSpan.textContent = result
     submitButton.addEventListener("click", function () {
     let winner = initials.value + " - " + result
-  
     winnersArray = JSON.parse(localStorage.getItem("winnersArray")) || []
-
     winnersArray.push(winner)
     localStorage.setItem("winnersArray", JSON.stringify(winnersArray));
     window.location.href ="highscores.html"
         })
 }
 
-// winnersArray = JSON.parse(localStorage.getItem("winnersArray")) || [];
-// winnersArray.push(winner);
-// localStorage.setItem("winnersArray", JSON.stringify(winnersArray));
-
-
-
-
-// Function punishing player for wrong answer be removing seconds 
+// Function penalizing the player for wrong answer be removing seconds 
 function penalty() {
     secondsLeft = timer.textContent = secondsLeft - 10
 }
 
 //Functions displaying and sounding feedback on answer submission
-
 function wrongFeedback() {
     feedback.classList.remove('hide');
     feedback.textContent = "Wrong answer!"
@@ -186,7 +179,3 @@ function rightFeedback() {
     feedback.innerHTML = '';
     }, 1200);
 }
-
-
-
-  
