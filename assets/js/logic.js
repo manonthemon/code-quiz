@@ -151,6 +151,7 @@ function gameOver() {
     finalScoreSpan.textContent = result
     submitButton.addEventListener("click", function () {
     let winner = initials.value + " - " + result
+    localStorage.setItem("winner", JSON.stringify(winner));
     console.log(winner)
         })
 }
@@ -184,3 +185,6 @@ function rightFeedback() {
     }, 1200);
 }
 
+
+
+  

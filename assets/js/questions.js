@@ -45,10 +45,6 @@ let quizQuestions = [
 ],
 },
 
-{ question: "Game Over",
-
-},
-
 ]
 
 let correctAnswer1 = "<script>"
