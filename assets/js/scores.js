@@ -1,18 +1,22 @@
 let highScoresList = document.getElementById("highscores")
 let scoresButtons = document.getElementById("scores-buttons")
+let clear = document.getElementById("clear")
 
+
+//append ol with high scores to the document and sets its style
 document.body.appendChild(highScoresList)
-scoresButtons.style = "display: flex; flex-direction: row; justify-content: center; margin-right: 330px";
-document.body.appendChild(scoresButtons)
 highScoresList.style = "display: flex; flex-direction: column; text-align: center;";
-    
 
+//append buttons to the document and sets style
+document.body.appendChild(scoresButtons)
+scoresButtons.style = "display: flex; flex-direction: row; justify-content: center; margin-right: 330px";
 
+//Function retrieving the up to date winners list from the local storage and adding it to the
+//ol list.
 
 function newScore() {
 
          let winnersArray = JSON.parse(localStorage.getItem("winnersArray"));
-         console.log(winnersArray)
          for (i=0; i<winnersArray.length; i++) {
          scoreLi = document.createElement("li")
          scoreLi.textContent = winnersArray[i]
@@ -21,7 +25,11 @@ function newScore() {
          }
         }
 
-        newScore()
-    
+newScore()
 
- 
+
+//Function clearing the list of winners and clearing local storage
+clear.addEventListener("click", function () {
+    highScoresList.innerHTML = ""
+    localStorage.clear();
+})

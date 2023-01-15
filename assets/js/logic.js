@@ -150,10 +150,13 @@ function gameOver() {
     finalScoreSpan.textContent = result
     submitButton.addEventListener("click", function () {
     let winner = initials.value + " - " + result
-    winnersArray = JSON.parse(localStorage.getItem("winnersArray")) 
+  
+    winnersArray = JSON.parse(localStorage.getItem("winnersArray")) || []
+
     winnersArray.push(winner)
     localStorage.setItem("winnersArray", JSON.stringify(winnersArray));
     console.log(winnersArray)
+    window.location.href ="highscores.html"
         })
 }
 
