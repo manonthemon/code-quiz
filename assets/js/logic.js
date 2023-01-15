@@ -43,8 +43,6 @@ function startTimer() {
 function startGame() {
     firstQuestion() // displays new question
     firstAnswers()
-
-
 }
 // Function display the first questions. 
 // First it hides the start page
@@ -141,6 +139,7 @@ function nextAnswers() {
 //It stops the timer and assigns its value to results variable
 //It displays game end screen with the result displayed
 //It takes user initials input and assigns it to variable alongside result
+// I then stories the result in local memory
 function gameOver() {
     clearInterval(timerInterval)
     let result = secondsLeft
@@ -151,10 +150,19 @@ function gameOver() {
     finalScoreSpan.textContent = result
     submitButton.addEventListener("click", function () {
     let winner = initials.value + " - " + result
-    localStorage.setItem("winner", JSON.stringify(winner));
-    console.log(winner)
+    winnersArray = JSON.parse(localStorage.getItem("winnersArray")) 
+    winnersArray.push(winner)
+    localStorage.setItem("winnersArray", JSON.stringify(winnersArray));
+    console.log(winnersArray)
         })
 }
+
+// winnersArray = JSON.parse(localStorage.getItem("winnersArray")) || [];
+// winnersArray.push(winner);
+// localStorage.setItem("winnersArray", JSON.stringify(winnersArray));
+
+
+
 
 // Function punishing player for wrong answer be removing seconds 
 function penalty() {

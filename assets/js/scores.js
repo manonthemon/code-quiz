@@ -1,26 +1,27 @@
 let highScoresList = document.getElementById("highscores")
-let storedScore = JSON.parse(localStorage.getItem("winner"));
+let scoresButtons = document.getElementById("scores-buttons")
 
-console.log(storedScore)
-
+document.body.appendChild(highScoresList)
+scoresButtons.style = "display: flex; flex-direction: row; justify-content: center; margin-right: 330px";
+document.body.appendChild(scoresButtons)
 highScoresList.style = "display: flex; flex-direction: column; text-align: center;";
-    document.body.appendChild(highScoresList)
     
-    function newScore() {
-        scoreEntry = document.createElement("li")
-         scoreEntry.style = "text-align: left; margin: 30px"
-        
-         scoreEntry.appendChild(document.createTextNode(storedScore))
-         highScoresList.append(scoreEntry)
-        //  scoreEntry.textContent = storedScore
-        }
- 
-        newScore()
- 
 
-    // function function1() {
-    //     var ul = document.getElementById("list");
-    //     var li = document.createElement("li");
-    //     li.appendChild(document.createTextNode("Four"));
-    //     ul.appendChild(li);
-    //   }
+
+
+function newScore() {
+
+         let winnersArray = JSON.parse(localStorage.getItem("winnersArray"));
+         console.log(winnersArray)
+         for (i=0; i<winnersArray.length; i++) {
+         scoreLi = document.createElement("li")
+         scoreLi.textContent = winnersArray[i]
+         scoreLi.style = "text-align: left; justify-content: center; margin-left: 400px; margin-right: 300px"
+         highScoresList.appendChild(scoreLi)
+         }
+        }
+
+        newScore()
+    
+
+ 
