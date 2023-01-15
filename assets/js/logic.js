@@ -60,7 +60,6 @@ function firstQuestion() {
     questionText.textContent = quizQuestions[0].question;
     questionsContainer.appendChild(questionText);
     questionsCounter++
-    console.log(questionsCounter)
 }
 
 // function to display the first set of answers
@@ -81,18 +80,14 @@ function firstAnswers() {
         answerButton.style.alignSelf = "center"
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
-            if (this.textContent === correctAnswer1) {
-                console.log("Correct answer!");
+            if (this.textContent === correctAnswer1) {  
                 rightFeedback() 
             } else {
-                console.log("Incorrect answer.");
                 wrongFeedback()
                 penalty()
             }
             nextQuestion()
             nextAnswers()
-            console.log(questionsCounter)
-
         })
     }
 }
@@ -118,10 +113,8 @@ function nextAnswers() {
             if (this.textContent === correctAnswer2 || this.textContent === correctAnswer3
                 || this.textContent === correctAnswer3 || this.textContent === correctAnswer4 ||
                 this.textContent === correctAnswer5) {
-                console.log("Correct answer!");
                 rightFeedback() 
             } else {
-                console.log("Incorrect answer.");
                 wrongFeedback()
                 penalty()
             }
@@ -131,7 +124,6 @@ function nextAnswers() {
             else {
                 nextQuestion()
                 nextAnswers()
-                console.log(questionsCounter)
             }})}}
         
 
@@ -155,7 +147,6 @@ function gameOver() {
 
     winnersArray.push(winner)
     localStorage.setItem("winnersArray", JSON.stringify(winnersArray));
-    console.log(winnersArray)
     window.location.href ="highscores.html"
         })
 }
