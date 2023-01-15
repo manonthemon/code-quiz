@@ -7,6 +7,8 @@ let questionText = document.getElementById("question-title")
 let feedback = document.getElementById("feedback")
 let endScreen = document.getElementById("end-screen")
 let finalScoreSpan = document.getElementById("final-score")
+let submitButton = document.getElementById("submit")
+let initials = document.getElementById("initials")
 
 let questionsContainer //variable foe the questions container defined in global scope
 let questionsCounter = 0;
@@ -136,6 +138,9 @@ function nextAnswers() {
         
 
 // Function finishing the game
+//It stops the timer and assigns its value to results variable
+//It displays game end screen with the result displayed
+//It takes user initials input and assigns it to variable alongside result
 function gameOver() {
     clearInterval(timerInterval)
     let result = secondsLeft
@@ -144,11 +149,10 @@ function gameOver() {
     feedback.classList.add('hide');
     endScreen.classList.remove('hide');
     finalScoreSpan.textContent = result
-
-
-
-    console.log("The result is "  + result)
-    console.log("GAME OVER")
+    submitButton.addEventListener("click", function () {
+    let winner = initials.value + " - " + result
+    console.log(winner)
+        })
 }
 
 // Function punishing player for wrong answer be removing seconds 
@@ -156,16 +160,7 @@ function penalty() {
     secondsLeft = timer.textContent = secondsLeft - 10
 }
 
-// //Function playing sound on wrong answer selection
-// function wrongSound() {
-// 	let wrong  = new Audio('./assets/sfx/incorrect.wav');
-// 	wrong.play();
-// }
-// //Function playing sound on right answer selection
-// function rightSound() {
-// 	let right  = new Audio('./assets/sfx/correct.wav');
-// 	right.play();
-// }
+//Functions displaying and sounding feedback on answer submission
 
 function wrongFeedback() {
     feedback.classList.remove('hide');
@@ -188,5 +183,4 @@ function rightFeedback() {
     feedback.innerHTML = '';
     }, 1200);
 }
-
 
