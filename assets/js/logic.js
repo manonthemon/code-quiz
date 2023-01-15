@@ -4,7 +4,7 @@ let startButton = document.getElementById("start")
 let questionsPage = document.getElementById("questions")
 let startScreen = document.getElementById("start-screen")
 let questionText = document.getElementById("question-title")
-lef feedback
+let feedback = document.getElementById("feedback")
 
 let questionsContainer //variable foe the questions container defined in global scope
 let questionsCounter = 0;
@@ -81,10 +81,10 @@ function firstAnswers() {
         answerButton.addEventListener("click", function () {
             if (this.textContent === correctAnswer1) {
                 console.log("Correct answer!");
-                rightSound ()
+                rightFeedback() 
             } else {
                 console.log("Incorrect answer.");
-                wrongSound () 
+                wrongFeedback()
                 penalty()
             }
             nextQuestion()
@@ -117,10 +117,10 @@ function nextAnswers() {
                 || this.textContent === correctAnswer3 || this.textContent === correctAnswer4 ||
                 this.textContent === correctAnswer5) {
                 console.log("Correct answer!");
-                rightSound ()
+                rightFeedback() 
             } else {
                 console.log("Incorrect answer.");
-                wrongSound () 
+                wrongFeedback()
                 penalty()
             }
             if (questionsCounter == 5) {
@@ -137,7 +137,7 @@ function nextAnswers() {
 function gameOver() {
     clearInterval(timerInterval)
     let result = secondsLeft
-    console.log("The result is "  + secondsLeft)
+    console.log("The result is "  + result)
     console.log("GAME OVER")
 }
 
@@ -146,13 +146,37 @@ function penalty() {
     secondsLeft = timer.textContent = secondsLeft - 10
 }
 
+// //Function playing sound on wrong answer selection
+// function wrongSound() {
+// 	let wrong  = new Audio('./assets/sfx/incorrect.wav');
+// 	wrong.play();
+// }
+// //Function playing sound on right answer selection
+// function rightSound() {
+// 	let right  = new Audio('./assets/sfx/correct.wav');
+// 	right.play();
+// }
 
-function wrongSound() {
-	let wrong  = new Audio('./assets/sfx/incorrect.wav');
+function wrongFeedback() {
+    feedback.classList.remove('hide');
+    feedback.textContent = "Wrong answer!"
+    document.body.appendChild(feedback)
+    let wrong  = new Audio('./assets/sfx/incorrect.wav');
 	wrong.play();
+    setTimeout(function(){
+        feedback.innerHTML = '';
+        }, 1200);
 }
 
-function rightSound() {
-	let right  = new Audio('./assets/sfx/correct.wav');
+function rightFeedback() {
+    feedback.classList.remove('hide');
+    feedback.textContent = "Correct answer!"
+    document.body.appendChild(feedback)
+    let right  = new Audio('./assets/sfx/correct.wav');
 	right.play();
+    setTimeout(function(){
+    feedback.innerHTML = '';
+    }, 1200);
 }
+
+
