@@ -18,13 +18,13 @@ scoresButtons.style = "display: flex; flex-direction: row;";
 
 //Function retrieving the up to date winners list from the local storage and adding it to the OL list.
 function newScore() {
-         let winnersArray = JSON.parse(localStorage.getItem("winnersArray"));
-         for (i=0; i<winnersArray.length; i++) {
-         scoreLi = document.createElement("li")
-         scoreLi.textContent = winnersArray[i]
-         highScoresList.appendChild(scoreLi)
-         }
-        }
+    let winnersArray = JSON.parse(localStorage.getItem("winnersArray"));
+    for (i = 0; i < winnersArray.length; i++) {
+        scoreLi = document.createElement("li")
+        scoreLi.textContent = winnersArray[i]
+        highScoresList.appendChild(scoreLi)
+    }
+}
 newScore()
 
 //Function clearing the list of winners and clearing local storage

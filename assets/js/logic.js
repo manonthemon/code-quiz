@@ -12,7 +12,7 @@ let submitButton = document.getElementById("submit")
 let initials = document.getElementById("initials")
 
 // Variables in global scope
-let questionsContainer 
+let questionsContainer
 let questionsCounter = 0;
 let selectedAnswer
 
@@ -37,15 +37,15 @@ function startTimer() {
         timer.textContent = secondsLeft;
         if (secondsLeft === 0) {
             clearInterval(timerInterval)
-            gameOver()        
+            gameOver()
         }
     }, 1000)
-    ;
+        ;
 }
 
 //Function starting the game containing other functions controlling the game
 function startGame() {
-    firstQuestion() 
+    firstQuestion()
     firstAnswers()
 }
 
@@ -85,8 +85,8 @@ function firstAnswers() {
         answerButton.style = "max-width: 200px; padding: 3px; margin-left: 150px";
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
-            if (this.textContent === correctAnswer1) {  
-                rightFeedback() 
+            if (this.textContent === correctAnswer1) {
+                rightFeedback()
             } else {
                 wrongFeedback()
                 penalty()
@@ -117,7 +117,7 @@ function nextAnswers() {
             if (this.textContent === correctAnswer2 || this.textContent === correctAnswer3
                 || this.textContent === correctAnswer3 || this.textContent === correctAnswer4 ||
                 this.textContent === correctAnswer5) {
-                rightFeedback() 
+                rightFeedback()
             } else {
                 wrongFeedback()
                 penalty()
@@ -128,8 +128,11 @@ function nextAnswers() {
             else {
                 nextQuestion()
                 nextAnswers()
-            }})}}
-        
+            }
+        })
+    }
+}
+
 //Function finishing the game
 //It stops the timer and assigns its value to results variable
 //It displays game end screen with the result displayed
@@ -144,12 +147,12 @@ function gameOver() {
     endScreen.classList.remove('hide');
     finalScoreSpan.textContent = result
     submitButton.addEventListener("click", function () {
-    let winner = initials.value + " - " + result
-    winnersArray = JSON.parse(localStorage.getItem("winnersArray")) || []
-    winnersArray.push(winner)
-    localStorage.setItem("winnersArray", JSON.stringify(winnersArray));
-    window.location.href ="highscores.html"
-        })
+        let winner = initials.value + " - " + result
+        winnersArray = JSON.parse(localStorage.getItem("winnersArray")) || []
+        winnersArray.push(winner)
+        localStorage.setItem("winnersArray", JSON.stringify(winnersArray));
+        window.location.href = "highscores.html"
+    })
 }
 
 // Function penalizing the player for wrong answer be removing seconds 
@@ -162,20 +165,20 @@ function wrongFeedback() {
     feedback.classList.remove('hide');
     feedback.textContent = "Wrong answer!"
     document.body.appendChild(feedback)
-    let wrong  = new Audio('./assets/sfx/incorrect.wav');
-	wrong.play();
-    setTimeout(function(){
+    let wrong = new Audio('./assets/sfx/incorrect.wav');
+    wrong.play();
+    setTimeout(function () {
         feedback.innerHTML = '';
-        }, 1200);
+    }, 1200);
 }
 
 function rightFeedback() {
     feedback.classList.remove('hide');
     feedback.textContent = "Correct answer!"
     document.body.appendChild(feedback)
-    let right  = new Audio('./assets/sfx/correct.wav');
-	right.play();
-    setTimeout(function(){
-    feedback.innerHTML = '';
+    let right = new Audio('./assets/sfx/correct.wav');
+    right.play();
+    setTimeout(function () {
+        feedback.innerHTML = '';
     }, 1200);
 }
