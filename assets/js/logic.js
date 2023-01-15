@@ -5,6 +5,8 @@ let questionsPage = document.getElementById("questions")
 let startScreen = document.getElementById("start-screen")
 let questionText = document.getElementById("question-title")
 let feedback = document.getElementById("feedback")
+let endScreen = document.getElementById("end-screen")
+let finalScoreSpan = document.getElementById("final-score")
 
 let questionsContainer //variable foe the questions container defined in global scope
 let questionsCounter = 0;
@@ -137,6 +139,10 @@ function nextAnswers() {
 function gameOver() {
     clearInterval(timerInterval)
     let result = secondsLeft
+    answersContainer.innerHTML = '';
+    questionsContainer.innerHTML = '';
+    feedback.classList.add('hide');
+    endScreen.classList.remove('hide');
     console.log("The result is "  + result)
     console.log("GAME OVER")
 }
