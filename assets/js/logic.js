@@ -143,6 +143,10 @@ function gameOver() {
     questionsContainer.innerHTML = '';
     feedback.classList.add('hide');
     endScreen.classList.remove('hide');
+    finalScoreSpan.textContent = result
+
+
+
     console.log("The result is "  + result)
     console.log("GAME OVER")
 }
