@@ -4,6 +4,7 @@ let startButton = document.getElementById("start")
 let questionsPage = document.getElementById("questions")
 let startScreen = document.getElementById("start-screen")
 let questionText = document.getElementById("question-title")
+lef feedback
 
 let questionsContainer //variable foe the questions container defined in global scope
 let questionsCounter = 0;
@@ -29,7 +30,6 @@ function startTimer() {
         timer.textContent = secondsLeft;
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-
         }
     }, 1000);
 }
@@ -42,7 +42,7 @@ function startGame() {
 
 
 }
-// function display the first questions. 
+// Function display the first questions. 
 // First it hides the start page
 //Then it creates a div for question and answers
 //then it sets the css properties of that div
@@ -81,8 +81,10 @@ function firstAnswers() {
         answerButton.addEventListener("click", function () {
             if (this.textContent === correctAnswer1) {
                 console.log("Correct answer!");
+                rightSound ()
             } else {
                 console.log("Incorrect answer.");
+                wrongSound () 
                 penalty()
             }
             nextQuestion()
@@ -115,8 +117,10 @@ function nextAnswers() {
                 || this.textContent === correctAnswer3 || this.textContent === correctAnswer4 ||
                 this.textContent === correctAnswer5) {
                 console.log("Correct answer!");
+                rightSound ()
             } else {
                 console.log("Incorrect answer.");
+                wrongSound () 
                 penalty()
             }
             if (questionsCounter == 5) {
@@ -142,3 +146,13 @@ function penalty() {
     secondsLeft = timer.textContent = secondsLeft - 10
 }
 
+
+function wrongSound() {
+	let wrong  = new Audio('./assets/sfx/incorrect.wav');
+	wrong.play();
+}
+
+function rightSound() {
+	let right  = new Audio('./assets/sfx/correct.wav');
+	right.play();
+}
