@@ -28,7 +28,7 @@ startButton.addEventListener("click", function () {
 //Ends game if timer runs down to 0
 
 let timerInterval
-let secondsLeft = 60;
+let secondsLeft = 100;
 timer.textContent = secondsLeft
 
 function startTimer() {
@@ -60,7 +60,7 @@ function startGame() {
 function firstQuestion() {
     startScreen.style.display = "none";
     questionsContainer = document.createElement("div")
-    questionsContainer.style = "display: flex; flex-direction: column; text-align: center;";
+    questionsContainer.style = "display: flex; flex-direction: column; text-align: center; justify-content: center; width: auto";
     document.body.appendChild(questionsContainer)
     questionText.textContent = quizQuestions[0].question;
     questionsContainer.appendChild(questionText);
@@ -82,7 +82,7 @@ function firstAnswers() {
     for (let i = 0; i < 4; i++) {
         answerButton = document.createElement("button");
         answerButton.textContent = quizQuestions[0].answers[i]
-        answerButton.style = "max-width: 200px; padding: 3px; margin-left: 150px";
+        answerButton.style = "max-width: 200px; padding: 3px; margin-left: 400px";
         answersContainer.appendChild(answerButton);
         answerButton.addEventListener("click", function () {
             if (this.textContent === correctAnswer1) {
