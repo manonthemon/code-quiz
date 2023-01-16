@@ -1,88 +1,46 @@
-# Module 6 Challenge Web APIs: Code Quiz
+# Code-Quiz
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-## Your Task
+## Description
 
-As you proceed in your journey to becoming a front-end web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges. 
-
-To help you become familiar with these tests and give you a chance to apply the skills from this module, this week’s challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. This week’s coursework has taught you all the skills you need to succeed in this challenge.
-
-
-## User Story
-
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
-
-## Acceptance Criteria
-
-Create a code quiz that contains the following requirements:
-
-* A start button that when clicked a timer starts and the first question appears.
- 
-  * Questions contain buttons for each answer.
-  * 
-  * When answer is clicked, the next question appears
-  * 
-  * If the answer clicked was incorrect then subtract time from the clock
-
-* The quiz should end when all questions are answered or the timer reaches 0.
-
-  * When the game ends, it should display their score and give the user the ability to save their initials and their score
-  
-## Mock-Up
-
-The following animation demonstrates the application functionality:
-
-![Animation of code quiz. Presses button to start quiz. Clicks the button for the answer to each question, displays if answer was correct or incorrect. Quiz finishes and displays high scores. User adds their intials, then clears their intials and starts over.](./assets/08-web-apis-challenge-demo.gif)
-
-## Grading Requirements
-
-This challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
+I completed this project to implement skills acquired during the sixth week of EDX front-end development bootcamp. I was tasked with creating an interactive online coding quiz meeting the following requirements:
 
 
-## Review
+<li>A start button that when clicked a timer starts and the first question appears.</li>
+<li>Questions contain buttons for each answer.</li>
+<li>When answer is clicked, the next question appears</li>
+<li>If the answer clicked was incorrect then subtract time from the clock</li>
+<li>The quiz should end when all questions are answered or the timer reaches 0.</li>
+<li>When the game ends, it should display their score and give the user the ability to save their initials and their score</li><br>
 
-You are required to submit BOTH of the following for review:
+ The following gif presents the desired look of the deployed webapp:
 
-* The URL of the functional, deployed application.
+![Animation of code quiz. Presses button to start quiz. Clicks the button for the answer to each question, displays if answer was correct or incorrect. Quiz finishes and displays high scores. User adds their initials, then clears their initials and starts over.](./assets/challenge-demo.gif)
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+Creating the quiz allowed me to
 
----
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+ <li>Practice creating code in JavaScript.</li>
+ <li>Practice using various DOM manipulation method to create a dynamically changing website design </li>
+ <li>Practice writing JavaScript functions</li>
+ <li>Practice sending and retrieving data to and from the browser's local storage</li>
+ <li>Practice debugging my code.</li>
+ <li>Practice GitHub workflow.</li><br>
+
+## Installation
+
+No installation is required. The deployed quiz can be seen at https://manonthemon.github.io/code-quiz/. All project files files are available in the repository. <br>
+
+
+## Usage
+
+This project can serve those wiling to learn more about using JavaScript to code dynamic, interactive websites. It is also a fully functional JavaScript knowledge quiz. The code can serve as a basis for other quizzes. 
+
+## Copyright
+
+I am the sole author of this project. In its making I used ideas and problem solutions some of the following sources:
+
+https://stackoverflow.com/<br>
+https://www.w3schools.com/<br>
+https://www.geeksforgeeks.org/<br>
+https://www.programiz.com/<br>
