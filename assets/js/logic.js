@@ -158,6 +158,7 @@ function penalty() {
 //Functions displaying and sounding feedback on answer submission
 function wrongFeedback() {
     feedback.classList.remove('hide');
+    feedback.classList.add('wrapper')
     feedback.textContent = "Wrong answer!";
     document.body.appendChild(feedback);
     let wrong = new Audio('./assets/sfx/incorrect.wav');
@@ -169,6 +170,7 @@ function wrongFeedback() {
 
 function rightFeedback() {
     feedback.classList.remove('hide');
+    feedback.classList.add('wrapper');
     feedback.textContent = "Correct answer!";
     document.body.appendChild(feedback);
     let right = new Audio('./assets/sfx/correct.wav');
