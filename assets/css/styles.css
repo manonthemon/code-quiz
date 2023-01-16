@@ -14,7 +14,8 @@ a:hover {
 }
 
 button {
-  display: inline-block;
+  text-align: left;
+  max-width: fit-content;
   margin: 5px;
   cursor: pointer;
   font-size: 100%;
@@ -28,10 +29,6 @@ button {
 
 button:hover {
   background-color: #8570a5;
-}
-
-.choices button {
-  display: block;
 }
 
 input[type="text"] {

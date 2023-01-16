@@ -2,12 +2,12 @@
 //Variable holding an array of objects with answers and questions
 let quizQuestions = [
     {
-        question: "1. Which HTML element do we put JavaScript in?",
+        question: "1. What statement ends JavaScript function execution?",
         answers: [
-            "1. <scripture>",
-            "2. <script-container>",
-            "3. <java-script>",
-            "4. <script>"
+            "1. stop",
+            "2. finalize",
+            "3. return",
+            "4. end"
         ],
     },
 
@@ -22,7 +22,7 @@ let quizQuestions = [
     },
 
     {
-        question: "3. Which symbol represent 'equal in value and type in Java Script?",
+        question: "3. Which operator determines if values are equal in value and type in JavaScript?",
         answers: [
             "1. =+",
             "2. ==",
@@ -32,30 +32,30 @@ let quizQuestions = [
     },
 
     {
-        question: "4. Is Java Script the same as JAVA?",
+        question: "4. Which of the following is NOT a JavaScript data type?",
         answers: [
-            "1. Yes",
-            "2. No",
-            "3. Often",
-            "4. Rarely"
+            "1. Boolean",
+            "2. String",
+            "3. Canvas",
+            "4. Number"
         ],
     },
 
     {
-        question: "5. How do you call a function in Java Script?",
+        question: "5. Which of the following is a type of JavaScript pop up box?",
         answers: [
-            "1. Call function()",
-            "2. Execute function ()",
-            "3. FunctionName()",
-            "4. Run function()"
+            "1. Submit",
+            "2. Alert",
+            "3. Reject",
+            "4. Cancel"
         ],
     },
 ]
 
 //Variables with correct answers
 
-let correctAnswer1 = "4. <script>"
+let correctAnswer1 = "3. return"
 let correctAnswer2 = "2. Document Object Model"
 let correctAnswer3 = "4. ==="
-let correctAnswer4 = "2. No"
-let correctAnswer5 = "3. FunctionName()"
+let correctAnswer4 = "3. Canvas"
+let correctAnswer5 = "2. Alert"
